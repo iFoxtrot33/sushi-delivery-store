@@ -1,0 +1,46 @@
+[
+    {
+      "id": 0,
+      "imageUrl": "https://sushiwok.ru/img/6ac7ea729f0acc9c433759321d1bbc3c/350x350",
+      "title": "Philadelphia Roll(shrimp)",
+      "description": "salmon, tiger shrimp, cream cheese, avocado",
+      "weight": "229",
+      "types": [0, 1],
+      "price": 7.6,
+      "category": 0,
+      "rating": 4
+    },
+    {
+      "id": 1,
+      "imageUrl": "https://sushiwok.ru/img/6ac7ea729f0acc9c433759321d1bbc3c/350x350",
+      "title": "Picanto Fish Roll",
+      "description": "red teriyaki fish, cream cheese, iceberg lettuce, masago orange caviar, honey sauce",
+      "weight": "187",
+      "types": [0, 1],
+      "price": 4.2,
+      "category": 0,
+      "rating": 4
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://sushiwok.ru/img/1a59db6a5d807fe7249f1e2a56f3ed02/350x350",
+      "title": "Roll California in Masago",
+      "description": "crab cream, avocado, cucumber, masago",
+      "weight": "192",
+      "types": [0, 1],
+      "price": 3.8,
+      "category": 0,
+      "rating": 4
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://sushiwok.ru/img/21049b356fe99e6fb33512836af5bb43/350x350",
+      "title": "Roll Philadelphia Grand",
+      "description": "salmon, avocado, cucumber, cream cheese",
+      "weight": "252",
+      "types": [0, 1],
+      "price": 7.8,
+      "category": 0,
+      "rating": 4
+    }
+]

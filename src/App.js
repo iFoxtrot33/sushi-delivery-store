@@ -1,8 +1,10 @@
-import Header from "./Components/Header";
-import Categories from "./Components/Categories";
-import Sort from "./Components/Sort";
-import SushiBlock from "./Components/SushiBlock";
+import Header from "./components/Header";
+import Categories from "./components/Categories";
+import Sort from "./components/Sort";
+import SushiBlock from "./components/SushiBlock";
 import "./scss/app.scss";
+
+import items from "./assets/items.json";
 
 function App() {
   return (
@@ -17,10 +19,9 @@ function App() {
             </div>
             <h2 className="content__title">All sushi</h2>
             <div className="content__items">
-              <SushiBlock />
-              <SushiBlock />
-              <SushiBlock />
-              <SushiBlock />
+            {items.map((obj) => (
+              <SushiBlock {...obj}/>
+            ))}
             </div>
           </div>
         </div>

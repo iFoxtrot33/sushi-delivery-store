@@ -1,7 +1,10 @@
 import React from "react";
 
-function SushiBlock() {
+
+function SushiBlock({ title, price, imageUrl, types }) {
   const [sushiCount, setSushiCount] = React.useState(0);
+  const [ activeType, setActiveType ] = React.useState(0);
+  const typeNames = ['half (4pcs)', 'full (8 pcs)'];
 
   function onAddSushi() {
     setSushiCount(sushiCount + 1);
@@ -11,23 +14,19 @@ function SushiBlock() {
     <div className="pizza-block">
       <img
         className="pizza-block__image"
-        src="/img/Philadelphia.jpeg"
+        src={imageUrl}
         alt="Philadelphia Sushi"
       />
-      <h4 className="pizza-block__title">Philadelphia sushi</h4>
+      <h4 className="pizza-block__title">{title}</h4>
       <div className="pizza-block__selector">
         <ul>
-          <li className="active">тонкое</li>
-          <li>традиционное</li>
-        </ul>
-        <ul>
-          <li className="active">26 см.</li>
-          <li>30 см.</li>
-          <li>40 см.</li>
+        {types.map((type) => (
+            <li onClick={() => setActiveType(type)} className={activeType === type ? 'active' : ''}>{typeNames[type]}</li>
+          ))}
         </ul>
       </div>
       <div className="pizza-block__bottom">
-        <div className="pizza-block__price">From 10 $</div>
+        <div className="pizza-block__price">{price} $</div>
         <button
           onClick={onAddSushi}
           className="button button--outline button--add"

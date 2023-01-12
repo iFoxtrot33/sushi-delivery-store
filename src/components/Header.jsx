@@ -1,9 +1,11 @@
+import sushiLogo from "../assets/imgs/sushiLogo.png";
+
 function Header() {
   return (
     <div className="header">
       <div className="container">
         <div className="header__logo">
-          <img width="50" src="./img/sushi-logo.png" alt="Pizza logo" />
+          <img width="50" src={sushiLogo} alt="Sushi logo" />
           <div>
             <h1>Batumi Sushi Shop</h1>
             <p>Best Sushi in Georgia</p>
