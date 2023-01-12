@@ -1,26 +1,37 @@
+import React from "react";
+
 function SushiBlock() {
+  const [sushiCount, setSushiCount] = React.useState(0);
+
+  function onAddSushi() {
+    setSushiCount(sushiCount + 1);
+  }
+
   return (
-    <div class="pizza-block">
+    <div className="pizza-block">
       <img
-        class="pizza-block__image"
+        className="pizza-block__image"
         src="/img/Philadelphia.jpeg"
         alt="Philadelphia Sushi"
       />
-      <h4 class="pizza-block__title">Philadelphia sushi</h4>
-      <div class="pizza-block__selector">
+      <h4 className="pizza-block__title">Philadelphia sushi</h4>
+      <div className="pizza-block__selector">
         <ul>
-          <li class="active">тонкое</li>
+          <li className="active">тонкое</li>
           <li>традиционное</li>
         </ul>
         <ul>
-          <li class="active">26 см.</li>
+          <li className="active">26 см.</li>
           <li>30 см.</li>
           <li>40 см.</li>
         </ul>
       </div>
-      <div class="pizza-block__bottom">
-        <div class="pizza-block__price">From 10 $</div>
-        <div class="button button--outline button--add">
+      <div className="pizza-block__bottom">
+        <div className="pizza-block__price">From 10 $</div>
+        <button
+          onClick={onAddSushi}
+          className="button button--outline button--add"
+        >
           <svg
             width="12"
             height="12"
@@ -34,8 +45,8 @@ function SushiBlock() {
             />
           </svg>
           <span>Add</span>
-          <i>2</i>
-        </div>
+          <i>{sushiCount}</i>
+        </button>
       </div>
     </div>
   );

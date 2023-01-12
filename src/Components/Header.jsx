@@ -1,18 +1,18 @@
 function Header() {
   return (
-    <div class="header">
-      <div class="container">
-        <div class="header__logo">
-          <img width="38" src="./img/pizza-logo.svg" alt="Pizza logo" />
+    <div className="header">
+      <div className="container">
+        <div className="header__logo">
+          <img width="50" src="./img/sushi-logo.png" alt="Pizza logo" />
           <div>
-            <h1>Sushi Shop</h1>
+            <h1>Batumi Sushi Shop</h1>
             <p>Best Sushi in Georgia</p>
           </div>
         </div>
-        <div class="header__cart">
-          <a href="/cart.html" class="button button--cart">
+        <div className="header__cart">
+          <a href="/cart.html" className="button button--cart">
             <span>520 ₽</span>
-            <div class="button__delimiter"></div>
+            <div className="button__delimiter"></div>
             <svg
               width="18"
               height="18"
