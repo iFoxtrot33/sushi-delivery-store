@@ -1,6 +1,6 @@
 import React from "react";
 
-function SushiBlock({ title, price, imageUrl, types }) {
+function SushiBlock({ title, price, imageUrl, types, description }) {
   const [sushiCount, setSushiCount] = React.useState(0);
   const [activeType, setActiveType] = React.useState(0);
   const typeNames = ["half (4pcs)", "full (8 pcs)"];
@@ -17,6 +17,7 @@ function SushiBlock({ title, price, imageUrl, types }) {
         alt="Philadelphia Sushi"
       />
       <h4 className="pizza-block__title">{title}</h4>
+      <div className="pizza-block__description">{description}</div>
       <div className="pizza-block__selector">
         <ul>
           {types.map((type) => (
