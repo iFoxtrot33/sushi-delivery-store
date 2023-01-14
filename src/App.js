@@ -1,12 +1,25 @@
+import React from "react";
+import axios from "axios";
+
 import Header from "./components/Header";
 import Categories from "./components/Categories";
 import Sort from "./components/Sort";
 import SushiBlock from "./components/SushiBlock";
 import "./scss/app.scss";
 
-import items from "./assets/items.json";
-
 function App() {
+  const [items, setItems] = React.useState([]);
+
+  React.useEffect(() => {
+    async function fetchData() {
+      const fetchedSushi = await axios.get(
+        "https://63c1e64a376b9b2e6485d812.mockapi.io/items"
+      );
+      setItems(fetchedSushi.data);
+    }
+    fetchData();
+    console.log(items);
+  }, []);
   return (
     <div className="App">
       <div className="wrapper">
