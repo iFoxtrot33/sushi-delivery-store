@@ -10,15 +10,15 @@ function SushiBlock({ title, price, imageUrl, types, description }) {
   }
 
   return (
-    <div className="pizza-block">
+    <div className="sushi-block">
       <img
-        className="pizza-block__image"
+        className="sushi-block__image"
         src={imageUrl}
         alt="Philadelphia Sushi"
       />
-      <h4 className="pizza-block__title">{title}</h4>
-      <div className="pizza-block__description">{description}</div>
-      <div className="pizza-block__selector">
+      <h4 className="sushi-block__title">{title}</h4>
+      <div className="sushi-block__description">{description}</div>
+      <div className="sushi-block__selector">
         <ul>
           {types.map((type) => (
             <li
@@ -31,8 +31,8 @@ function SushiBlock({ title, price, imageUrl, types, description }) {
           ))}
         </ul>
       </div>
-      <div className="pizza-block__bottom">
-        <div className="pizza-block__price">{price} $</div>
+      <div className="sushi-block__bottom">
+        <div className="sushi-block__price">{price} $</div>
         <button
           onClick={onAddSushi}
           className="button button--outline button--add"

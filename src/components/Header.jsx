@@ -1,18 +1,21 @@
+import { Link } from "react-router-dom";
 import sushiLogo from "../assets/imgs/sushiLogo.png";
 
 function Header() {
   return (
     <div className="header">
       <div className="container">
-        <div className="header__logo">
-          <img width="50" src={sushiLogo} alt="Sushi logo" />
-          <div>
-            <h1>Batumi Sushi Shop</h1>
-            <p>Best Sushi in Georgia</p>
+        <Link to="/">
+          <div className="header__logo">
+            <img width="50" src={sushiLogo} alt="Sushi logo" />
+            <div>
+              <h1>Batumi Sushi Shop</h1>
+              <p>Best Sushi in Georgia</p>
+            </div>
           </div>
-        </div>
+        </Link>
         <div className="header__cart">
-          <a href="/cart.html" className="button button--cart">
+          <Link to="/cart" className="button button--cart">
             <span>520 ₽</span>
             <div className="button__delimiter"></div>
             <svg
@@ -45,7 +48,7 @@ function Header() {
               />
             </svg>
             <span>3</span>
-          </a>
+          </Link>
         </div>
       </div>
     </div>
