@@ -21,15 +21,17 @@ function Home() {
   }, []);
   return (
     <>
-      <div className="content__top">
-        <Categories />
-        <Sort />
-      </div>
-      <h2 className="content__title">All sushi</h2>
-      <div className="content__items">
-        {isLoading
-          ? [...new Array(8)].map((_, index) => <Skeleton key={index} />)
-          : items.map((obj) => <SushiBlock key={obj.id} {...obj} />)}
+      <div className="container">
+        <div className="content__top">
+          <Categories />
+          <Sort />
+        </div>
+        <h2 className="content__title">All sushi</h2>
+        <div className="content__items">
+          {isLoading
+            ? [...new Array(8)].map((_, index) => <Skeleton key={index} />)
+            : items.map((obj) => <SushiBlock key={obj.id} {...obj} />)}
+        </div>
       </div>
     </>
   );

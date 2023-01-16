@@ -7,7 +7,7 @@ function Header() {
       <div className="container">
         <Link to="/">
           <div className="header__logo">
-            <img width="50" src={sushiLogo} alt="Sushi logo" />
+            <img width="50" height="50" src={sushiLogo} alt="Sushi logo" />
             <div>
               <h1>Batumi Sushi Shop</h1>
               <p>Best Sushi in Georgia</p>

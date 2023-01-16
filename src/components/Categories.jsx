@@ -8,7 +8,8 @@ function Categories() {
     "Wok",
     "Sushi",
     "Lunches",
-    "Deserts & Drinks",
+    "Deserts",
+    "Drinks",
     "Additional",
   ];
 
