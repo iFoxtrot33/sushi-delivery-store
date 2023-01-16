@@ -163,6 +163,10 @@ body {
     }
   }
 
+  .content__item {
+    display: block;
+  }
+
   &__item {
     display: flex;
     width: 100%;

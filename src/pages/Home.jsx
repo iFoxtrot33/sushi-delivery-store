@@ -18,6 +18,7 @@ function Home() {
       setIsLoading(false);
     }
     fetchData();
+    window.scrollTo(0, 0);
   }, []);
   return (
     <>
