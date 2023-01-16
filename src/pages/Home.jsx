@@ -8,24 +8,36 @@ import SushiBlock from "../components/SushiBlock";
 function Home() {
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
+  const [categoryId, setCategoryId] = React.useState(0);
+  const [sortType, setSortType] = React.useState({
+    name: "rating",
+    sortProperty: "rating",
+  });
 
   React.useEffect(() => {
+    const sortBy = sortType.sortProperty.replace("-", "");
+    const order = sortType.sortProperty.includes("-") ? "asc" : "desc";
+    const category = categoryId > 0 ? `category=${categoryId}` : "";
+    console.log(order);
     async function fetchData() {
       const fetchedSushi = await axios.get(
-        "https://63c1e64a376b9b2e6485d812.mockapi.io/items"
+        `https://63c1e64a376b9b2e6485d812.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}`
       );
       setItems(fetchedSushi.data);
       setIsLoading(false);
     }
     fetchData();
     window.scrollTo(0, 0);
-  }, []);
+  }, [categoryId, sortType]);
   return (
     <>
       <div className="container">
         <div className="content__top">
-          <Categories />
-          <Sort />
+          <Categories
+            value={categoryId}
+            onChangeCategory={(i) => setCategoryId(i)}
+          />
+          <Sort value={sortType} onChangeSort={(i) => setSortType(i)} />
         </div>
         <h2 className="content__title">All sushi</h2>
         <div className="content__items">
