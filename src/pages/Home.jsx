@@ -4,11 +4,13 @@ import Categories from "../components/Categories";
 import Sort from "../components/Sort";
 import Skeleton from "../components/SushiBlock/Skeleton";
 import SushiBlock from "../components/SushiBlock";
+import Pagination from "../components/Pagination";
 
 function Home({ searchValue }) {
   const [items, setItems] = React.useState([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [categoryId, setCategoryId] = React.useState(0);
+  const [currentPage, setCurrentPage] = React.useState(1);
   const [sortType, setSortType] = React.useState({
     name: "rating",
     sortProperty: "rating",
@@ -22,15 +24,15 @@ function Home({ searchValue }) {
     console.log(order);
     async function fetchData() {
       const fetchedSushi = await axios.get(
-        `https://63c1e64a376b9b2e6485d812.mockapi.io/items?${category}${search}&sortBy=${sortBy}&order=${order}`
+        `https://63c1e64a376b9b2e6485d812.mockapi.io/items?page=${currentPage}&limit=12${category}${search}&sortBy=${sortBy}&order=${order}`
       );
       setItems(fetchedSushi.data);
       setIsLoading(false);
     }
     fetchData();
     window.scrollTo(0, 0);
-  }, [categoryId, sortType, searchValue]);
-  const skeletons = [...new Array(8)].map((_, index) => (
+  }, [categoryId, sortType, searchValue, currentPage]);
+  const skeletons = [...new Array(12)].map((_, index) => (
     <Skeleton key={index} />
   ));
   const sushi = items.map((obj) => <SushiBlock key={obj.id} {...obj} />);
@@ -47,6 +49,7 @@ function Home({ searchValue }) {
         </div>
         <h2 className="content__title">All sushi</h2>
         <div className="content__items">{isLoading ? skeletons : sushi}</div>
+        <Pagination onChangePage={(number) => setCurrentPage(number)} />
       </div>
     </>
   );
