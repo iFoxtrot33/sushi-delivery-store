@@ -1,4 +1,7 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { addItem } from "../../redux/slices/cartSlice";
 
 function SushiBlock({
   id,
@@ -9,14 +12,23 @@ function SushiBlock({
   description,
   weight,
 }) {
-  const [sushiCount, setSushiCount] = React.useState(0);
+  const dispatch = useDispatch();
   const [activeType, setActiveType] = React.useState(0);
   const [showDescription, setShowDescription] = React.useState(-1);
   const typeNames = ["half (4pcs)", "full (8 pcs)"];
 
-  function onAddSushi() {
-    setSushiCount(sushiCount + 1);
-  }
+  const onClickAdd = () => {
+    const item = {
+      id,
+      title,
+      price,
+      imageUrl,
+      type: activeType,
+    };
+    console.log(item);
+    dispatch(addItem(item));
+  };
+
   function onShowDescription(id) {
     if (showDescription === id) {
       setShowDescription(-1);
@@ -53,7 +65,7 @@ function SushiBlock({
         <div className="sushi-block__bottom">
           <div className="sushi-block__price">{price} $</div>
           <button
-            onClick={onAddSushi}
+            onClick={onClickAdd}
             className="button button--outline button--add"
           >
             <svg
@@ -69,7 +81,7 @@ function SushiBlock({
               />
             </svg>
             <span>Add</span>
-            <i>{sushiCount}</i>
+            <i>0</i>
           </button>
         </div>
       </div>
