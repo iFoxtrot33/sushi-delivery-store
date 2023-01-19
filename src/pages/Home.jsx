@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
+import { useSearchParams } from "react-router-dom";
 import { setCategoryId, setCurrentPage } from "../redux/slices/filterSlice";
 import Categories from "../components/Categories";
 import Sort from "../components/Sort";
@@ -10,6 +11,9 @@ import Pagination from "../components/Pagination";
 import { SearchContext } from "../App";
 
 function Home() {
+  const isInitialLoad = React.useRef(true);
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const dispatch = useDispatch();
   const { categoryId, sort, currentPage } = useSelector(
     (state) => state.filter
@@ -41,8 +45,15 @@ function Home() {
       setIsLoading(false);
     }
     fetchData();
+    if (!isInitialLoad.current) {
+      setSearchParams({ currentPage, category, sortBy, searchValue });
+    } else {
+      setSearchParams({});
+      isInitialLoad.current = false;
+    }
     window.scrollTo(0, 0);
   }, [categoryId, sort.sortProperty, searchValue, currentPage]);
+
   const skeletons = [...new Array(12)].map((_, index) => (
     <Skeleton key={index} />
   ));
