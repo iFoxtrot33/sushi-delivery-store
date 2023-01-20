@@ -11,12 +11,13 @@ function CartItem({ id, title, imageUrl, price, type, size, count }) {
   };
 
   const onPlusItem = () => {
-    console.log(id);
     dispatch(addItem({ id }));
   };
 
   const onMinusItem = () => {
-    dispatch(minusItem(id));
+    if (count > 0) {
+      dispatch(minusItem(id));
+    }
   };
 
   return (
