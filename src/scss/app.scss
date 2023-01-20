@@ -163,6 +163,10 @@ body {
     }
   }
 
+  .content__items__cart {
+    display: flex;
+    flex-direction: column;
+  }
   .content__item {
     display: block;
   }

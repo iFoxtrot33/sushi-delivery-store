@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { addItem } from "../../redux/slices/cartSlice";
 
+const typeNames = ["half (4pcs)", "full (8 pcs)"];
+
 function SushiBlock({
   id,
   title,
@@ -13,19 +15,29 @@ function SushiBlock({
   weight,
 }) {
   const dispatch = useDispatch();
-  const [activeType, setActiveType] = React.useState(0);
+  const cartItemFull = useSelector((state) =>
+    state.cart.items.find((full) => full.id === id)
+  );
+
+  const cartItemHalf = useSelector((state) =>
+    state.cart.items.find((half) => half.id === -id)
+  );
+
+  const [activeType, setActiveType] = React.useState(1);
   const [showDescription, setShowDescription] = React.useState(-1);
-  const typeNames = ["half (4pcs)", "full (8 pcs)"];
+
+  const addedCount =
+    (cartItemFull ? cartItemFull.count : 0) +
+    (cartItemHalf ? cartItemHalf.count : 0);
 
   const onClickAdd = () => {
     const item = {
-      id,
+      id: !activeType ? id * -1 : id,
       title,
-      price,
+      price: !activeType ? price / 2 : price,
       imageUrl,
-      type: activeType,
+      type: typeNames[activeType],
     };
-    console.log(item);
     dispatch(addItem(item));
   };
 
@@ -63,7 +75,9 @@ function SushiBlock({
           </ul>
         </div>
         <div className="sushi-block__bottom">
-          <div className="sushi-block__price">{price} $</div>
+          <div className="sushi-block__price">
+            {activeType ? price : price / 2} $
+          </div>
           <button
             onClick={onClickAdd}
             className="button button--outline button--add"
@@ -81,7 +95,7 @@ function SushiBlock({
               />
             </svg>
             <span>Add</span>
-            <i>0</i>
+            {addedCount > 0 && <i>{addedCount}</i>}
           </button>
         </div>
       </div>

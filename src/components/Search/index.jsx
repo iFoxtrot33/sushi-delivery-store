@@ -45,7 +45,7 @@ function Search() {
         value={value}
         onChange={onChangeInput}
         className={styles.input}
-        placeholder="Поиск пиццы..."
+        placeholder="Search..."
       ></input>
 
       {value && (
