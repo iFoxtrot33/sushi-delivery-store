@@ -3,10 +3,16 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
-const AboutItem = () => {
+const AboutItem: React.FC = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [sushi, setSushi] = React.useState();
+  const [sushi, setSushi] = React.useState<{
+    imageUrl: string;
+    title: string;
+    description: string;
+    weight: string;
+    price: number;
+  }>();
 
   React.useEffect(() => {
     async function fetchSushi() {
