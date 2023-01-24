@@ -123,6 +123,23 @@ body {
   }
 }
 
+.inner-container {
+  text-align: center;
+  h1 {
+    font-size: 35px;
+  }
+  .desc {
+    margin: 5px;
+  }
+  .price {
+    margin-top: 15px;
+  }
+}
+
+.inner-btn {
+  margin: 20px;
+}
+
 .cart {
   &__top {
     display: flex;

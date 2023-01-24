@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { addItem } from "../../redux/slices/cartSlice";
 import { selectCartItemById } from "../../redux/slices/cartSlice";
@@ -21,7 +22,6 @@ function SushiBlock({
   const cartItemHalf = useSelector(selectCartItemById(-id));
 
   const [activeType, setActiveType] = React.useState(1);
-  const [showDescription, setShowDescription] = React.useState(-1);
 
   const addedCount =
     (cartItemFull ? cartItemFull.count : 0) +
@@ -38,26 +38,17 @@ function SushiBlock({
     dispatch(addItem(item));
   };
 
-  function onShowDescription(id) {
-    if (showDescription === id) {
-      setShowDescription(-1);
-    }
-    setShowDescription(id);
-  }
-
   return (
     <div className="sushi-block__wrapper">
       <div className="sushi-block">
-        <img
-          className="sushi-block__image"
-          src={imageUrl}
-          alt="Philadelphia Sushi"
-        />
-        <h4 className="sushi-block__title">{title}</h4>
-        <div className="sushi-block__description">
-          <h3 onClick={() => onShowDescription(id)}>Description</h3>
-          <p>{showDescription === id ? description : ""}</p>
-        </div>
+        <Link to={`/about/${id}`}>
+          <img
+            className="sushi-block__image"
+            src={imageUrl}
+            alt="Philadelphia Sushi"
+          />
+          <h4 className="sushi-block__title">{title}</h4>
+        </Link>
         <div className="sushi-block__selector">
           <ul>
             {types.map((type) => (
