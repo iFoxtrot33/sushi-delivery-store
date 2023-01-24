@@ -41,6 +41,8 @@ const sushiSlice = createSlice({
   },
 });
 
+export const selectSushiData = (state) => state.sushi;
+
 export const { setItems } = sushiSlice.actions;
 
 export default sushiSlice.reducer;

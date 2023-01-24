@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { addItem } from "../../redux/slices/cartSlice";
+import { selectCartItemById } from "../../redux/slices/cartSlice";
 
 const typeNames = ["half (4pcs)", "full (8 pcs)"];
 
@@ -15,13 +16,9 @@ function SushiBlock({
   weight,
 }) {
   const dispatch = useDispatch();
-  const cartItemFull = useSelector((state) =>
-    state.cart.items.find((full) => full.id === id)
-  );
+  const cartItemFull = useSelector(selectCartItemById(id));
 
-  const cartItemHalf = useSelector((state) =>
-    state.cart.items.find((half) => half.id === -id)
-  );
+  const cartItemHalf = useSelector(selectCartItemById(-id));
 
   const [activeType, setActiveType] = React.useState(1);
   const [showDescription, setShowDescription] = React.useState(-1);

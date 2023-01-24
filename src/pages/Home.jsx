@@ -8,21 +8,20 @@ import Sort from "../components/Sort";
 import Skeleton from "../components/SushiBlock/Skeleton";
 import SushiBlock from "../components/SushiBlock";
 import Pagination from "../components/Pagination";
-import { SearchContext } from "../App";
+
 import { fetchSushi } from "../redux/slices/sushiSlice";
+import { selectSushiData } from "../redux/slices/sushiSlice";
+import { selectFilter } from "../redux/slices/filterSlice";
 
 function Home() {
   const isInitialLoad = React.useRef(true);
   const [searchParams, setSearchParams] = useSearchParams();
 
   const dispatch = useDispatch();
-  const { categoryId, sort, currentPage } = useSelector(
-    (state) => state.filter
-  );
+  const { categoryId, sort, currentPage, searchValue } =
+    useSelector(selectFilter);
 
-  const { items, status } = useSelector((state) => state.sushi);
-
-  const { searchValue } = React.useContext(SearchContext);
+  const { items, status } = useSelector(selectSushiData);
 
   const onChangeCategory = (id) => {
     dispatch(setCategoryId(id));
