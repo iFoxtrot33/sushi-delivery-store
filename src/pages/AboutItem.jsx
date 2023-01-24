@@ -25,7 +25,7 @@ const AboutItem = () => {
   }, []);
 
   if (!sushi) {
-    return "Loading...";
+    return <h2 className="about-loading">Loading...</h2>;
   }
   return (
     <div className="container inner-container">
