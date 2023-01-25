@@ -1,6 +1,11 @@
 import React from "react";
 
-function Categories({ value, onChangeCategory }) {
+type CatigoriesProps = {
+  value: number;
+  onChangeCategory: any;
+};
+
+const Categories: React.FC<CatigoriesProps> = ({ value, onChangeCategory }) => {
   const categories = [
     "All",
     "Rolls",
@@ -27,6 +32,6 @@ function Categories({ value, onChangeCategory }) {
       </ul>
     </div>
   );
-}
+};
 
 export default Categories;

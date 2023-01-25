@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import axios from "axios";
 import { useSearchParams } from "react-router-dom";
 import { setCategoryId, setCurrentPage } from "../redux/slices/filterSlice";
 import Categories from "../components/Categories";
@@ -13,9 +12,9 @@ import { fetchSushi } from "../redux/slices/sushiSlice";
 import { selectSushiData } from "../redux/slices/sushiSlice";
 import { selectFilter } from "../redux/slices/filterSlice";
 
-function Home() {
+const Home: React.FC = () => {
   const isInitialLoad = React.useRef(true);
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [, setSearchParams] = useSearchParams();
 
   const dispatch = useDispatch();
   const { categoryId, sort, currentPage, searchValue } =
@@ -23,12 +22,12 @@ function Home() {
 
   const { items, status } = useSelector(selectSushiData);
 
-  const onChangeCategory = (id) => {
+  const onChangeCategory = (id: number) => {
     dispatch(setCategoryId(id));
   };
 
-  const onChangePage = (number) => {
-    dispatch(setCurrentPage(number));
+  const onChangePage = (page: number) => {
+    dispatch(setCurrentPage(page));
   };
 
   const sortBy = sort.sortProperty.replace("-", "");
@@ -37,6 +36,7 @@ function Home() {
   const search = searchValue ? `&search=${searchValue}` : "";
 
   React.useEffect(() => {
+    //@ts-ignore
     dispatch(fetchSushi({ sortBy, order, category, search, currentPage }));
     if (!isInitialLoad.current) {
       setSearchParams({ currentPage, category, sortBy, searchValue });
@@ -50,7 +50,7 @@ function Home() {
   const skeletons = [...new Array(12)].map((_, index) => (
     <Skeleton key={index} />
   ));
-  const sushi = items.map((obj) => <SushiBlock key={obj.id} {...obj} />);
+  const sushi = items.map((obj: any) => <SushiBlock key={obj.id} {...obj} />);
 
   return (
     <>
@@ -74,6 +74,6 @@ function Home() {
       </div>
     </>
   );
-}
+};
 
 export default Home;

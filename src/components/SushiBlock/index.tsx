@@ -7,15 +7,21 @@ import { selectCartItemById } from "../../redux/slices/cartSlice";
 
 const typeNames = ["half (4pcs)", "full (8 pcs)"];
 
-function SushiBlock({
+type SushiBlockProps = {
+  id: string;
+  title: string;
+  price: number;
+  imageUrl: string;
+  types: number[];
+};
+
+const SushiBlock: React.FC<SushiBlockProps> = ({
   id,
   title,
   price,
   imageUrl,
   types,
-  description,
-  weight,
-}) {
+}) => {
   const dispatch = useDispatch();
   const cartItemFull = useSelector(selectCartItemById(id));
 
@@ -29,7 +35,7 @@ function SushiBlock({
 
   const onClickAdd = () => {
     const item = {
-      id: !activeType ? id * -1 : id,
+      id: !activeType ? Number(id) * -1 : Number(id),
       title,
       price: !activeType ? price / 2 : price,
       imageUrl,
@@ -89,6 +95,6 @@ function SushiBlock({
       </div>
     </div>
   );
-}
+};
 
 export default SushiBlock;
