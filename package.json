@@ -6,7 +6,9 @@
     "@reduxjs/toolkit": "^1.9.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.2.2",
+    "@types/jest": "^29.4.0",
+    "axios": "^1.2.4",
+    "esm": "^3.2.25",
     "lodash.debounce": "^4.0.8",
     "react": "^18.2.0",
     "react-content-loader": "^6.2.0",
@@ -17,11 +19,6 @@
     "react-scripts": "5.0.1",
     "sass": "^1.57.1",
     "web-vitals": "^2.1.4"
-  },
-  "jest": {
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    }
   },
   "scripts": {
     "start": "react-scripts start",
@@ -49,9 +46,11 @@
   },
   "devDependencies": {
     "@babel/preset-env": "^7.20.2",
+    "@jest/globals": "^29.4.0",
     "@testing-library/react": "^13.4.0",
     "axios-mock-adapter": "^1.21.2",
     "babel-jest": "^29.4.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
     "jest": "^27.5.1"
   }
 }
