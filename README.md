@@ -7,9 +7,9 @@ Sushi delivery store.
 <a href="https://codeclimate.com/github/iFoxtrot33/sushi-delivery-store/maintainability"><img src="https://api.codeclimate.com/v1/badges/b2fe796c682f1f3023b2/maintainability" /></a> 
 
 ## Stack:
-ReactJS 18 <br/>
-TypeScript
-Redux Toolkit (хранение данных / пицц)
+- ReactJS 18 <br/>
+- TypeScript
+- Redux Toolkit (хранение данных / пицц)
 React Router v6 (навигация)
 Axios + Fetch (отправка запроса на бэкенд)
 React Hooks (хуки)
