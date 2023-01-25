@@ -5,8 +5,7 @@ Sushi delivery store.
 
 ## Demo:
 
-## To deploy localy:
-<code>
+## To deploy localy:<code>
 1)git clone
 2)cd sushi-delivery-store
 3)make install
