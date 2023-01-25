@@ -23,7 +23,7 @@ Sushi delivery store.
 - React Router v6 
 - Axios
 - React Hooks 
-- Prettier 
+- Prettier, ESLint 
 - CSS-Modules / SCSS 
 - React Content Loader 
 - React Pagination 
