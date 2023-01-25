@@ -1,4 +1,4 @@
-# Batumi Sushi Shop
+# 🍱Batumi Sushi Shop
 
 ## About:
 Sushi delivery store. 
