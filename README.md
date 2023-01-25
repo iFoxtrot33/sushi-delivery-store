@@ -7,10 +7,10 @@ Sushi delivery store.
 
 ## To deploy localy:
 <code>
-- git clone
-- cd sushi-delivery-store
-- make install
-- npm start
+1)git clone
+2)cd sushi-delivery-store
+3)make install
+4)npm start
 </code>
 
 ## Tests:
