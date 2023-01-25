@@ -1,11 +1,11 @@
 # 🍱Batumi Sushi Shop
 
-## About:
+## ℹAbout:
 Sushi delivery store. 
 
-## Demo:
+## 🌐Demo:
 
-## To deploy localy:
+## 💻To deploy localy:
 ```
 1)git clone
 2)cd sushi-delivery-store
@@ -13,7 +13,7 @@ Sushi delivery store.
 4)npm start
 ```
 
-## Tests:
+## 🎛️Tests:
 <a href="https://codeclimate.com/github/iFoxtrot33/sushi-delivery-store/maintainability"><img src="https://api.codeclimate.com/v1/badges/b2fe796c682f1f3023b2/maintainability" /></a> 
 
 ## 🛠Stack:
