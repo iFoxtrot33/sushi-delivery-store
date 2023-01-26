@@ -26,9 +26,15 @@ const Sort: React.FC = () => {
     setOpen(false);
   };
 
+  type PopupClick = MouseEvent & {
+    composedPath(): Node[];
+  };
+
   React.useEffect(() => {
-    const handleClickOutside = (event: any) => {
-      if (!event.composedPath().includes(sortRef.current)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      const _event = event as PopupClick;
+
+      if (sortRef.current && !_event.composedPath().includes(sortRef.current)) {
         setOpen(false);
       }
     };
