@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { addItem } from "../../redux/slices/cartSlice";
-import { selectCartItemById } from "../../redux/slices/cartSlice";
+import {
+  selectCartItemByIdFull,
+  selectCartItemByIdHalf,
+} from "../../redux/slices/cartSlice";
 
 const typeNames = ["half (4pcs)", "full (8 pcs)"];
 
@@ -23,9 +26,10 @@ const SushiBlock: React.FC<SushiBlockProps> = ({
   types,
 }) => {
   const dispatch = useDispatch();
-  const cartItemFull = useSelector(selectCartItemById(id));
 
-  const cartItemHalf = useSelector(selectCartItemById(-id));
+  const cartItemFull = useSelector(selectCartItemByIdFull(id));
+
+  const cartItemHalf = useSelector(selectCartItemByIdHalf(id));
 
   const [activeType, setActiveType] = React.useState(1);
 
@@ -35,7 +39,7 @@ const SushiBlock: React.FC<SushiBlockProps> = ({
 
   const onClickAdd = () => {
     const item = {
-      id: !activeType ? Number(id) * -1 : Number(id),
+      id: activeType !== 0 ? "-" + id : id,
       title,
       price: !activeType ? price / 2 : price,
       imageUrl,
