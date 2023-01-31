@@ -26,7 +26,6 @@ const CartItemBlock: React.FC<CartItemProps> = ({
   size,
   count,
 }) => {
-  console.log(size);
   const dispatch = useDispatch();
 
   const onRemoveItem = () => {
