@@ -6,6 +6,7 @@ import { addItem } from "../../redux/slices/cartSlice";
 import {
   selectCartItemByIdFull,
   selectCartItemByIdHalf,
+  CartItem,
 } from "../../redux/slices/cartSlice";
 
 const typeNames = ["half (4pcs)", "full (8 pcs)"];
@@ -38,12 +39,13 @@ const SushiBlock: React.FC<SushiBlockProps> = ({
     (cartItemHalf ? cartItemHalf.count : 0);
 
   const onClickAdd = () => {
-    const item = {
+    const item: CartItem = {
       id: activeType !== 0 ? "-" + id : id,
       title,
       price: !activeType ? price / 2 : price,
       imageUrl,
       type: typeNames[activeType],
+      count: 0,
     };
     dispatch(addItem(item));
   };

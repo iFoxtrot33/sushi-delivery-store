@@ -1,5 +1,6 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "../redux/store";
 import { useSearchParams } from "react-router-dom";
 import { setCategoryId, setCurrentPage } from "../redux/slices/filterSlice";
 import Categories from "../components/Categories";
@@ -16,7 +17,7 @@ const Home: React.FC = () => {
   const isInitialLoad = React.useRef(true);
   const [, setSearchParams] = useSearchParams();
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const { categoryId, sort, currentPage, searchValue } =
     useSelector(selectFilter);
 
@@ -36,10 +37,16 @@ const Home: React.FC = () => {
   const search = searchValue ? `&search=${searchValue}` : "";
 
   React.useEffect(() => {
-    //@ts-ignore
     dispatch(fetchSushi({ sortBy, order, category, search, currentPage }));
     if (!isInitialLoad.current) {
-      setSearchParams({ currentPage, category, sortBy, searchValue });
+      setSearchParams(
+        new URLSearchParams({
+          currentPage: currentPage.toString(),
+          category: category,
+          sortBy: sortBy,
+          searchValue: searchValue,
+        })
+      );
     } else {
       setSearchParams({});
       isInitialLoad.current = false;
