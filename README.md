@@ -4,6 +4,7 @@
 Sushi delivery store. 
 
 ## 🌐Demo:
+https://batumisushishop.surge.sh/
 
 ## 💻To deploy localy:
 ```
