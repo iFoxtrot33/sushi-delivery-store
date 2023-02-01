@@ -2,12 +2,12 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { addItem } from "../../redux/slices/cartSlice";
+import { addItem } from "../../redux/slices/cart/slice";
 import {
   selectCartItemByIdFull,
   selectCartItemByIdHalf,
-  CartItem,
-} from "../../redux/slices/cartSlice";
+} from "../../redux/slices/cart/selectors";
+import { CartItem } from "../../redux/slices/cart/types";
 
 const typeNames = ["half (4pcs)", "full (8 pcs)"];
 

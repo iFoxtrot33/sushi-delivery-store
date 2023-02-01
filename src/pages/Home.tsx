@@ -2,16 +2,19 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { useAppDispatch } from "../redux/store";
 import { useSearchParams } from "react-router-dom";
-import { setCategoryId, setCurrentPage } from "../redux/slices/filterSlice";
-import Categories from "../components/Categories";
-import Sort from "../components/Sort";
-import Skeleton from "../components/SushiBlock/Skeleton";
-import SushiBlock from "../components/SushiBlock";
-import Pagination from "../components/Pagination";
+import { setCategoryId, setCurrentPage } from "../redux/slices/filter/slice";
 
-import { fetchSushi } from "../redux/slices/sushiSlice";
-import { selectSushiData } from "../redux/slices/sushiSlice";
-import { selectFilter } from "../redux/slices/filterSlice";
+import {
+  Categories,
+  Sort,
+  Skeleton,
+  SushiBlock,
+  Pagination,
+} from "../components";
+
+import { fetchSushi } from "../redux/slices/sushi/asyncActions";
+import { selectSushiData } from "../redux/slices/sushi/selectors";
+import { selectFilter } from "../redux/slices/filter/selectors";
 
 const Home: React.FC = () => {
   const isInitialLoad = React.useRef(true);
