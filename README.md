@@ -4,7 +4,7 @@
 Sushi delivery store. 
 
 ## 🌐Demo:
-https://batumisushishop.surge.sh/
+https://sushi-delivery-store.vercel.app/
 
 ## 💻To deploy localy:
 ```
