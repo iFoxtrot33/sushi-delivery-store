@@ -10,6 +10,7 @@ import {
   Skeleton,
   SushiBlock,
   Pagination,
+  Banner,
 } from "../components";
 
 import { fetchSushi } from "../redux/slices/sushi/asyncActions";
@@ -70,6 +71,7 @@ const Home: React.FC = () => {
           <Sort value={sort} />
         </div>
         <h2 className="content__title">All sushi</h2>
+        <Banner />
         {status === "error" ? (
           <div className="content__error-info">
             <h3>Error😕</h3>

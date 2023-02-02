@@ -8,3 +8,4 @@ export { default as Pagination } from "./Pagination";
 export { default as NotFoundBlock } from "./NotFoundBlock";
 export { default as Search } from "./Search";
 export { default as Categories } from "./Categories";
+export { default as Banner } from "./Banner";
