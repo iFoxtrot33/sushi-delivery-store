@@ -1,9 +1,7 @@
 import React, { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-//import Cart from "./pages/Cart";
+
 import Home from "./pages/Home";
-//import AboutItem from "./pages/AboutItem";
-//import NotFound from "./pages/NotFound";
 import MainLayout from "./layouts/MainLayout";
 
 import "./scss/app.scss";
@@ -16,6 +14,13 @@ const NotFound = React.lazy(
 );
 const AboutItem = React.lazy(
   () => import(/*webpackChunkName: 'AboutItem'*/ "./pages/AboutItem")
+);
+
+const Payment = React.lazy(
+  () => import(/*webpackChunkName: 'Payment'*/ "./pages/Payment")
+);
+const ThankYou = React.lazy(
+  () => import(/*webpackChunkName: 'ThankYou'*/ "./pages/ThankYou")
 );
 function App() {
   return (
@@ -46,6 +51,22 @@ function App() {
             </Suspense>
           }
         />
+        <Route
+          path="/payment"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <Payment />
+            </Suspense>
+          }
+        ></Route>
+        <Route
+          path="/thankyou"
+          element={
+            <Suspense fallback={<div>Loading...</div>}>
+              <ThankYou />
+            </Suspense>
+          }
+        ></Route>
       </Route>
     </Routes>
   );

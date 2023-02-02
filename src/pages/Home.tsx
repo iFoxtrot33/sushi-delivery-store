@@ -70,7 +70,6 @@ const Home: React.FC = () => {
           <Categories value={categoryId} onChangeCategory={onChangeCategory} />
           <Sort value={sort} />
         </div>
-        <h2 className="content__title">All sushi</h2>
         <Banner />
         {status === "error" ? (
           <div className="content__error-info">

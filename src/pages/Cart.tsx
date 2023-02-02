@@ -133,9 +133,11 @@ const Cart: React.FC = () => {
                   </svg>
                   <span>Go Back</span>
                 </Link>
-                <div className="button pay-btn">
-                  <span>Pay</span>
-                </div>
+                <Link to="/payment">
+                  <div className="button pay-btn">
+                    <span>Pay</span>
+                  </div>
+                </Link>
               </div>
             </div>
           </>

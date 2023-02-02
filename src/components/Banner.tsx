@@ -1,5 +1,6 @@
 import React from "react";
-import banner from "../assets/imgs/banner.png";
+// @ts-ignore
+import banner from "../assets/imgs/banner2.gif";
 
 const Banner: React.FC = () => {
   return (

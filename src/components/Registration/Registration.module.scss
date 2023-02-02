@@ -1,0 +1,22 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  label {
+    margin: 20px;
+  }
+  input {
+    border: 1px solid black;
+    padding: 10px 30px;
+    margin-left: 5px;
+    border-radius: 10px;
+  }
+}
+
+.buttons {
+  text-align: center;
+}
+
+.orange {
+  background-color: orange;
+}
