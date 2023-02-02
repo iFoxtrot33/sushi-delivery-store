@@ -4,6 +4,7 @@
 Sushi delivery store. 
 
 ## 🌐Demo:
+https://sushi-delivery-store.vercel.app/
 
 ## 💻To deploy localy:
 ```
