@@ -49,7 +49,7 @@ const Registration: React.FC = () => {
         <Link to="/" className="button button--black inner-btn">
           <span>Go Back</span>
         </Link>
-        <Link to="/thankyou" className="button pay-btn">
+        <Link to="/thank" className="button pay-btn">
           <span>Proceed to payment</span>
         </Link>
       </div>

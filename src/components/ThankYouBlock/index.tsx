@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./ThankYouBlock.module.scss";
 
 const ThankYouBlock: React.FC = () => {

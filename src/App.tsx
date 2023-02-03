@@ -19,8 +19,8 @@ const AboutItem = React.lazy(
 const Payment = React.lazy(
   () => import(/*webpackChunkName: 'Payment'*/ "./pages/Payment")
 );
-const ThankYou = React.lazy(
-  () => import(/*webpackChunkName: 'ThankYou'*/ "./pages/ThankYou")
+const Thank = React.lazy(
+  () => import(/*webpackChunkName: 'Thankyou'*/ "./pages/Thank")
 );
 function App() {
   return (
@@ -60,10 +60,10 @@ function App() {
           }
         ></Route>
         <Route
-          path="/thankyou"
+          path="/thank"
           element={
             <Suspense fallback={<div>Loading...</div>}>
-              <ThankYou />
+              <Thank />
             </Suspense>
           }
         ></Route>
