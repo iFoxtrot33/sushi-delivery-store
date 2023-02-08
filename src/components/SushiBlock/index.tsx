@@ -54,11 +54,7 @@ const SushiBlock: React.FC<SushiBlockProps> = ({
     <div className="sushi-block__wrapper">
       <div className="sushi-block">
         <Link to={`/about/${id}`}>
-          <img
-            className="sushi-block__image"
-            src={imageUrl}
-            alt="Philadelphia Sushi"
-          />
+          <img className="sushi-block__image" src={imageUrl} alt={title} />
           <h4 className="sushi-block__title">{title}</h4>
         </Link>
         <div className="sushi-block__selector">

@@ -41,6 +41,7 @@ const AboutItem: React.FC = () => {
       <h3>{sushi.description}</h3>
       <h3>Weight: {sushi.weight}g.</h3>
       <h2 className="price">{sushi.price} $</h2>
+
       <Link to="/" className="button button--black inner-btn">
         <span>Go Back</span>
       </Link>
