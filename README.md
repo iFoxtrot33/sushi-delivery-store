@@ -31,3 +31,6 @@ https://sushi-delivery-store.vercel.app/
 - React Pagination 
 - Lodash.Debounce
 - Code Splitting, React.lazy
+
+## Attention:
+Pagination is under maintenance 
